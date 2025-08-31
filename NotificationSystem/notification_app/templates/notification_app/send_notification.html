@@ -1,45 +1,44 @@
 {% extends 'notification_app/base.html' %}
 
+{% load widget_tweaks %}
+
 {% block content %}
 <h2>Отправить уведомление</h2>
 
-<form method="post">
-    {% csrf_token %}
-    
-    <div style="margin-bottom: 15px;">
-        <label>{{ form.title.label }}</label>
-        {{ form.title }}
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label class="form-label">{{ form.title.label }}</label>
+                {{ form.title|add_class:"form-control" }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">{{ form.message.label }}</label>
+                {{ form.message|add_class:"form-control" }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">{{ form.platform.label }}</label>
+                {{ form.platform|add_class:"form-select" }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">{{ form.clients.label }}</label>
+                {{ form.clients|add_class:"form-select" }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">{{ form.scheduled_time.label }}</label>
+                {{ form.scheduled_time|add_class:"form-control" }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+                Отправить уведомление
+            </button>
+        </form>
     </div>
-    
-    <div style="margin-bottom: 15px;">
-        <label>{{ form.message.label }}</label>
-        {{ form.message }}
-    </div>
-    
-    <div style="margin-bottom: 15px;">
-        <label>{{ form.platform.label }}</label>
-        {{ form.platform }}
-    </div>
-    
-    <div style="margin-bottom: 15px;">
-        <label>{{ form.clients.label }}</label>
-        {{ form.clients }}
-    </div>
-    
-    <div style="margin-bottom: 15px;">
-        <label>{{ form.scheduled_time.label }}</label>
-        {{ form.scheduled_time }}
-    </div>
-    
-    <button type="submit" style="
-        background: #007bff;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    ">
-        Отправить уведомление
-    </button>
-</form>
+</div>
 {% endblock %}
