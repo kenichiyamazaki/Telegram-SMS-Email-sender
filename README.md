@@ -56,13 +56,13 @@ REDIS_URL='ссылка-на-redis'
 
 ## Главная страница
 
-![alt text](images\main-page.png)
+![alt text](images/main-page.png)
 
 На главной странице отображаются последние 9 уведомлений и статистика.
 
 ## Панель администратора
 
-![alt text](images\admin-console.jpg)
+![alt text](images/admin-console.jpg)
 
 **Функции панели администратора:**
 - Добавление новых клиентов
@@ -74,25 +74,25 @@ REDIS_URL='ссылка-на-redis'
 
 ## Создание нового клиента
 
-![alt text](images\new-clients.png)
+![alt text](images/new-clients.png)
 
 ## Просмотр логов
 
-![alt text](images\log.png)
+![alt text](images/log.png)
 
 ## Страница отправки
 
-![alt text](images\main-form.png)
+![alt text](images/main-form.png)
 
 После добавления новых контактов в поле "Контакты для рассылки", появятся имена ранее созданных клиентов для выборочной отправки. По умолчанию выбраны все.
 
 Для отложенной отправки предусмотрен выбор даты, если не заполнять это поле, то отправка произойдёт сразу.
 
-![alt text](images\calendar.png)
+![alt text](images/calendar.png)
 
 При нажатии кнопки "Отправить", произойдёт редирект на главную страницу, и будет отображено уведомление.
 
-![alt text](images\sending-notification.png)
+![alt text](images/sending-notification.png)
 
 ## Запуск 
 
