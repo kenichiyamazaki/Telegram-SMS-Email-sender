@@ -1,0 +1,45 @@
+{% extends 'notification_app/base.html' %}
+
+{% block content %}
+<h2>Отправить уведомление</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div style="margin-bottom: 15px;">
+        <label>{{ form.title.label }}</label>
+        {{ form.title }}
+    </div>
+    
+    <div style="margin-bottom: 15px;">
+        <label>{{ form.message.label }}</label>
+        {{ form.message }}
+    </div>
+    
+    <div style="margin-bottom: 15px;">
+        <label>{{ form.platform.label }}</label>
+        {{ form.platform }}
+    </div>
+    
+    <div style="margin-bottom: 15px;">
+        <label>{{ form.clients.label }}</label>
+        {{ form.clients }}
+    </div>
+    
+    <div style="margin-bottom: 15px;">
+        <label>{{ form.scheduled_time.label }}</label>
+        {{ form.scheduled_time }}
+    </div>
+    
+    <button type="submit" style="
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    ">
+        Отправить уведомление
+    </button>
+</form>
+{% endblock %}

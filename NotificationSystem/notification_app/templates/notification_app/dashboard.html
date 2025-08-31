@@ -1,0 +1,21 @@
+{% extends 'notification_app/base.html' %}
+
+{% block content %}
+<h2>Статистика рассылок</h2>
+<div>
+    <p>Всего уведомлений: {{ total_notifications }}</p>
+    <p>Отправлено успешно: {{ sent_notifications }}</p>
+</div>
+
+<h2>Последние уведомления</h2>
+{% for notification in notifications %}
+    <div class="notification">
+        <h3>{{ notification.title }}</h3>
+        <p>Площадка: {{ notification.get_platform_display }}</p>
+        <p>Статус: {{ notification.get_status_display }}</p>
+        <p>Создано: {{ notification.created_at }}</p>
+    </div>
+{% empty %}
+    <p>Нет уведомлений</p>
+{% endfor %}
+{% endblock %}

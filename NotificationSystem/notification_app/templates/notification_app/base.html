@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Система рассылок</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .header { background: #007bff; color: white; padding: 10px 20px; }
+        .nav { margin: 20px 0; }
+        .nav a { margin-right: 15px; text-decoration: none; color: #007bff; }
+        .content { max-width: 1000px; margin: 0 auto; }
+        .notification { padding: 15px; margin: 10px 0; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Система массовых рассылок</h1>
+    </div>
+    
+    <div class="nav">
+        <a href="{% url 'dashboard' %}">Главная</a>
+        <a href="{% url 'send_notification' %}">Отправить уведомление</a>
+        <a href="/admin/">Админка</a>
+    </div>
+    
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
