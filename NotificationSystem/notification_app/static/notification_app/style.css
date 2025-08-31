@@ -10,7 +10,7 @@ body {
     padding: 20px;
     font-weight: 1000;
 }
-.navbar-brand{
+.navbar-brand {
     font-size: 40px;
 }
 .card {
@@ -19,7 +19,31 @@ body {
     padding: 10px;
     background-color: #1c1b1d;
     color: white;
+    font-weight: 700;
 }
-.card-text.text-muted small{
+.card-text.text-muted small {
     color: grey;
+}
+.btn.btn-primary {
+    background-color: #6651b1;
+    border-color: #6651b1;
+}
+.form-control, .form-select {
+    background-color: #221f2b;
+    color: #fff;
+    border: 1.5px solid #6651b1;
+}
+.form-control:focus, .form-select:focus {
+    background-color: #2d2940;
+    color: #fff;
+    border-color: #a78fff;
+    box-shadow: 0 0 0 0.2rem rgba(102,81,177,.25);
+}
+.mb-4 {
+    color: white;
+    font-weight: 700;
+}
+.form-control::placeholder, .form-select::placeholder {
+    color: #a78fff;      
+    opacity: 1;          
 }
