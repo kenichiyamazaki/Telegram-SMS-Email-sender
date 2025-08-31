@@ -13,6 +13,7 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+
 class Contact(models.Model):
     """Контактные данные клиента"""
     CONTACT_TYPES = [
@@ -34,6 +35,7 @@ class Contact(models.Model):
     
     def __str__(self):
         return f"{self.client.name} - {self.get_contact_type_display()}: {self.value}"
+
 
 class Notification(models.Model):
     """Уведомление для отправки"""
@@ -69,6 +71,7 @@ class Notification(models.Model):
     
     def __str__(self):
         return f"{self.title} ({self.get_platform_display()})"
+
 
 class NotificationLog(models.Model):
     """Лог отправки уведомлений"""

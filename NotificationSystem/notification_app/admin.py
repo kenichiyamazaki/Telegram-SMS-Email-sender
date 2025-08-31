@@ -1,10 +1,12 @@
 from django.contrib import admin
 from .models import Client, Contact, Notification, NotificationLog
 
+
 class ContactInline(admin.TabularInline):
     model = Contact
     extra = 1
     fields = ['contact_type', 'value', 'is_active']
+
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
@@ -17,17 +19,20 @@ class ClientAdmin(admin.ModelAdmin):
         return obj.contacts.count()
     contacts_count.short_description = 'Кол-во контактов'
 
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['client', 'contact_type', 'value', 'is_active', 'created_at']
     list_filter = ['contact_type', 'is_active', 'created_at']
     search_fields = ['client__name', 'value']
 
+
 class NotificationLogInline(admin.TabularInline):
     model = NotificationLog
     extra = 0
     readonly_fields = ['contact', 'status', 'error_message', 'sent_at']
     can_delete = False
+
 
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):
@@ -52,6 +57,7 @@ class NotificationAdmin(admin.ModelAdmin):
             'fields': ('status', 'created_at', 'sent_at')
         }),
     )
+
 
 @admin.register(NotificationLog)
 class NotificationLogAdmin(admin.ModelAdmin):

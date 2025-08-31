@@ -1,10 +1,10 @@
+import time
+import requests
 from celery import shared_task
 from django.conf import settings
 from django.utils import timezone
-from .models import Notification, Contact, NotificationLog
-import requests
-import time
 from django.core.mail import send_mail
+from .models import Notification, Contact, NotificationLog
 
 @shared_task
 def send_notification_task(notification_id):
@@ -57,7 +57,7 @@ def send_notification_task(notification_id):
                 )
                 fail_count += 1
             
-            # Небольшая задержка между отправками
+            # Небольшая задержка между отправками, чтобы не отправлялось в спам
             time.sleep(0.1)
         
         # Обновляем статус уведомления
@@ -99,7 +99,7 @@ def send_sms(phone_number, message):
     print(f"[SMS] Отправка на {phone_number}")
     print(f"Сообщение: {message}")
     
-    # Имитация реальной отправки
+    # Имитация отправки SMS
     if hasattr(settings, 'SMS_ACCOUNT_SID'):
         # Реальная отправка через Twilio
         try:
