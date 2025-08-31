@@ -99,15 +99,15 @@ REDIS_URL='ссылка-на-redis'
 1. Установить Python
 2. Установить Redis
 3. Создать директорию проекта
-```
+```bash
 mkdir your-project
 ```
 4. Клонировать проект
-```
+```bash
 git clone https://github.com/kenichiyamazaki/Telegram-SMS-Email-sender
 ```
 5. Поднять вирутальную среду со всеми зависимостями (файл с ними располагается по пути "Telegram-SMS-Email-sender\NotificationSystem\requirements.txt")
-```
+```bash
 python -m venv .your-venv
 
 cd ./NotificationSystem
@@ -120,21 +120,21 @@ pip install -r requirements.txt
 
 6. Создать и заполнить файл .env по примеру
 7. Запустить Celery
-```
+```bash
 celery -A NotificationSystem worker -l info --pool=solo
 # Пул solo нужен для запуска одним процессом, иначе Windows закроет ему доступ
 ```
 8. Запустить миграции
-```
+```bash
 python manage.py migrate
 python manage.py makemigrations notification_app
 ```
 9. Создать админа
-```
+```bash
 python manage.py createsuperuser
 ```
 10. Запустить приложение
-```
+```bash
 python manage.py runserver
 ```
 
