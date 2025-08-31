@@ -21,4 +21,5 @@ class NotificationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['clients'].queryset = Client.objects.all()
+        self.fields['clients'].initial = Client.objects.all().values_list('id', flat=True)
         self.fields['scheduled_time'].required = False

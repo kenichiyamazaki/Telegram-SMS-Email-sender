@@ -111,16 +111,16 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 
 # Email settings
-EMAIL_HOST = os.getenv('EMAIL_HOST', '')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
 # Telegram settings
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 # SMS settings
-SMS_ACCOUNT_SID = os.getenv('SMS_ACCOUNT_SID', '')
-SMS_AUTH_TOKEN = os.getenv('SMS_AUTH_TOKEN', '')
-SMS_FROM_NUMBER = os.getenv('SMS_FROM_NUMBER', '')
+SMS_ACCOUNT_SID = os.getenv('SMS_ACCOUNT_SID')
+SMS_AUTH_TOKEN = os.getenv('SMS_AUTH_TOKEN')
+SMS_FROM_NUMBER = os.getenv('SMS_FROM_NUMBER')

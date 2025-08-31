@@ -3,10 +3,8 @@ from django.conf import settings
 from django.utils import timezone
 from .models import Notification, Contact, NotificationLog
 import requests
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 import time
+from django.core.mail import send_mail
 
 @shared_task
 def send_notification_task(notification_id):
@@ -77,33 +75,24 @@ def send_notification_task(notification_id):
         return f"Ошибка при отправке: {str(e)}"
 
 def send_email(to_email, subject, message):
-    """Отправка email (заглушка с имитацией)"""
+    """Отправка email через Django Email Backend"""
+    print("DEBUG:", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
     print(f"[EMAIL] Отправка на {to_email}: {subject}")
     print(f"Сообщение: {message}")
-    
-    # Имитация реальной отправки
-    if hasattr(settings, 'EMAIL_HOST_USER'):
-        # Реальная отправка через SMTP
-        try:
-            msg = MIMEMultipart()
-            msg['From'] = settings.EMAIL_HOST_USER
-            msg['To'] = to_email
-            msg['Subject'] = subject
-            msg.attach(MIMEText(message, 'plain'))
-            
-            # with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT) as server:
-            #     server.starttls()
-            #     server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
-            #     server.send_message(msg)
-            
-            print(f"Email отправлен на {to_email}")
-            
-        except Exception as e:
-            print(f"Ошибка отправки email: {e}")
-            raise
-    else:
-        # Заглушка для демонстрации
-        print(f"Имитация отправки email на {to_email}")
+
+    try:
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [to_email],
+            fail_silently=False,
+        )
+        print(f"Email отправлен на {to_email}")
+
+    except Exception as e:
+        print(f"Ошибка отправки email: {e}")
+        raise
 
 def send_sms(phone_number, message):
     """Отправка SMS (заглушка с имитацией)"""
@@ -135,23 +124,17 @@ def send_telegram(chat_id, message):
     print(f"[TELEGRAM] Отправка для chat_id {chat_id}")
     print(f"Сообщение: {message}")
     
-    # Имитация реальной отправки
-    if hasattr(settings, 'TELEGRAM_BOT_TOKEN'):
-        # Реальная отправка через Telegram Bot API
-        try:
-            url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
-            payload = {
-                'chat_id': chat_id,
-                'text': message,
-                'parse_mode': 'HTML'
-            }
-            # response = requests.post(url, data=payload)
-            # response.raise_for_status()
-            print(f"Telegram сообщение отправлено для chat_id {chat_id}")
+    # Реальная отправка через Telegram Bot API
+    try:
+        url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
+        payload = {
+            'chat_id': chat_id,
+            'text': message
+        }
+        response = requests.post(url, data=payload)
+        response.raise_for_status()
+        print(f"Telegram сообщение отправлено для chat_id {chat_id}")
             
-        except Exception as e:
-            print(f"Ошибка отправки Telegram: {e}")
-            raise
-    else:
-        # Заглушка для демонстрации
-        print(f"Имитация отправки Telegram для chat_id {chat_id}")
+    except Exception as e:
+        print(f"Ошибка отправки Telegram: {e}")
+        raise

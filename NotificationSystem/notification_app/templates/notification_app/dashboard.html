@@ -2,20 +2,26 @@
 
 {% block content %}
 <h2>Статистика рассылок</h2>
-<div>
+<div class="mb-4">
     <p>Всего уведомлений: {{ total_notifications }}</p>
     <p>Отправлено успешно: {{ sent_notifications }}</p>
 </div>
 
 <h2>Последние уведомления</h2>
+<div class="row">
 {% for notification in notifications %}
-    <div class="notification">
-        <h3>{{ notification.title }}</h3>
-        <p>Площадка: {{ notification.get_platform_display }}</p>
-        <p>Статус: {{ notification.get_status_display }}</p>
-        <p>Создано: {{ notification.created_at }}</p>
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ notification.title }}</h5>
+                <p class="card-text mb-1"><strong>Площадка:</strong> {{ notification.get_platform_display }}</p>
+                <p class="card-text mb-1"><strong>Статус:</strong> {{ notification.get_status_display }}</p>
+                <p class="card-text text-muted"><small>Создано: {{ notification.created_at }}</small></p>
+            </div>
+        </div>
     </div>
 {% empty %}
     <p>Нет уведомлений</p>
 {% endfor %}
+</div>
 {% endblock %}

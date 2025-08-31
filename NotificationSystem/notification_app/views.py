@@ -12,7 +12,7 @@ def is_admin(user):
 @user_passes_test(is_admin)
 def dashboard(request):
     """Главная страница с статистикой"""
-    notifications = Notification.objects.all().order_by('-created_at')[:10]
+    notifications = Notification.objects.all().order_by('-created_at')[:9]
     total_notifications = Notification.objects.count()
     sent_notifications = Notification.objects.filter(status='completed').count()
     
