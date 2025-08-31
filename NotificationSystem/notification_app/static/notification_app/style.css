@@ -47,3 +47,124 @@ body {
     color: #a78fff;      
     opacity: 1;          
 }
+.flatpickr-calendar {
+    background: #221f2b;
+    border-radius: 16px;
+    border: 1.5px solid #6651b1;
+    margin-bottom: 1em;
+    width: 340px;
+    padding: 10px;
+}
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day:hover {
+    background: #6651b1;
+}
+.flatpickr-input {
+    background-color: #221f2b;
+    border: 1.5px solid #6651b1;
+}
+/* Цвет текста в календаре flatpickr */
+.flatpickr-calendar, 
+.flatpickr-calendar .flatpickr-months, 
+.flatpickr-calendar .flatpickr-weekdays, 
+.flatpickr-calendar .flatpickr-days, 
+.flatpickr-calendar .flatpickr-day {
+    color: white !important; /* ваш желаемый цвет */
+}
+/* Цвет текста дней недели */
+.flatpickr-weekday {
+    color: white !important;
+    font-weight: 700;
+}
+/* Цвет текста обычных дней */
+.flatpickr-day {
+    color: white !important;
+}
+/* Цвет текста выбранного дня */
+.flatpickr-day.selected {
+    color: #fff !important;
+}
+
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange {
+    color: #a78fff;
+}
+
+/* Цвет текста месяца и года в flatpickr */
+.flatpickr-current-month,
+.flatpickr-current-month .cur-month,
+.flatpickr-current-month input.cur-year {
+    color: white !important;
+}
+/* Цвет стрелок переключения месяца */
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+    fill: #a78fff !important; /* ваш цвет */
+}
+
+/* Цвет стрелок при наведении */
+.flatpickr-prev-month:hover svg,
+.flatpickr-next-month:hover svg {
+    fill: #6651b1 !important;
+}
+
+/* Цвет времени (часы и минуты) */
+.flatpickr-time input,
+.flatpickr-time .flatpickr-am-pm {
+    color: #a78fff !important;
+    background: #221f2b !important;
+    border: none !important;
+}
+
+/* Цвет иконки часов */
+.flatpickr-time .flatpickr-time-separator {
+    color: #a78fff !important;
+}
+/* Цвет выпадающего меню выбора месяца и года в flatpickr */
+.flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year {
+    background-color: #221f2b !important;
+    color: #a78fff !important;
+    /* border: 1.5px solid #6651b1 !important; */
+}
+
+/* Цвет опций в выпадающем меню месяца */
+.flatpickr-monthDropdown-months option {
+    background-color: #221f2b !important;
+    color: #a78fff !important;
+}
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+    fill: #a78fff !important;
+}
+.flatpickr-prev-month:hover svg,
+.flatpickr-next-month:hover svg {
+    fill: #6651b1 !important;
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowUp:after {
+    border-bottom-color: white;
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowDown:after {
+    border-top-color: white;
+}
+
+.flatpickr-time .numInputWrapper span.arrowUp:after {
+    border-bottom-color: white;
+}
+
+.flatpickr-time .numInputWrapper span.arrowDown:after {
+    border-top-color: white;
+}
+
+.flatpickr-day.nextMonthDay:hover{
+    background-color: #1c1b1d;
+}
+
+.flatpickr-day.prevMonthDay:hover{
+    background-color: #1c1b1d;
+}
+
+.flatpickr-day.selected:hover{
+    background-color: #a78fff;
+}

@@ -32,7 +32,7 @@
             
             <div class="mb-3">
                 <label class="form-label">{{ form.scheduled_time.label }}</label>
-                {{ form.scheduled_time|add_class:"form-control" }}
+                {{ form.scheduled_time|add_class:"form-control"|attr:"id:id_scheduled_time" }}
             </div>
             
             <button type="submit" class="btn btn-primary">
